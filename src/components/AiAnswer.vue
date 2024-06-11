@@ -1,6 +1,6 @@
 <template>
   <div>
-      <p v-if="answer">{{ answer }}</p>
+      <pre v-if="answer">{{ answer }}</pre>
   </div>
 </template>
 
