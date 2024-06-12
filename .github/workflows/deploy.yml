@@ -22,6 +22,8 @@ concurrency:
 
 jobs:
   # Single deploy job since we're just deploying
+  env:
+    VITE_GOOGLE_AI_STUDIO_API_KEY: ${{ secrets.VITE_GOOGLE_AI_STUDIO_API_KEY }}
   deploy:
     environment:
       name: github-pages
