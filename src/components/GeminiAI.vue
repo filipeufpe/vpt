@@ -1,14 +1,23 @@
 <template>
+  <header class="bg-gray-200 h-12 flex items-center px-4">
+    <form @submit.prevent="fetchAnswer" class="w-full">
+      <input
+        type="text"
+        id="question"
+        v-model="question"
+        placeholder="Digite algo..."
+        class="w-4/5 p-2 border border-gray-300 rounded mr-2"
+      />
+      <button
+        class="p-2 bg-blue-500 text-white rounded"
+        type="submit"
+        :disabled="!question"
+      >
+        {{ `${isLoading ? "Aguardando..." : "Enviar"}` }}
+      </button>
+    </form>
+  </header>
   <h1 class="mb-5">Faça perguntas sobre o Banco</h1>
-
-  <form class="mb-5" @submit.prevent="fetchAnswer">
-    <div>
-      <textarea name="question" id="question" cols="30" rows="10" v-model="question"></textarea>
-    </div>
-    <button type="submit" :disabled="!question">
-      {{ `${isLoading ? 'asking gemini...' : 'Ask'}` }}
-    </button>
-  </form>
 
   <div class="mb-10">
     <AIAnswer :answer="answer" />
@@ -16,19 +25,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useGetGenerativeModelGP } from '../composables/useGetGenerativeModelGP.js'
-import AIAnswer from './AiAnswer.vue'
+import { ref } from "vue";
+import { useGetGenerativeModelGP } from "../composables/useGetGenerativeModelGP.js";
+import AIAnswer from "./AiAnswer.vue";
 
-const question = ref('')
-const answer = ref('')
-const isLoading = ref(false)
+const question = ref("");
+const answer = ref("");
+const isLoading = ref(false);
 
 const fetchAnswer = async () => {
-  answer.value = ''
-  isLoading.value = true
+  answer.value = "";
+  isLoading.value = true;
 
-const context = `Possuo duas coleções num banco de dados MongoDB,
+  const context = `Possuo duas coleções num banco de dados MongoDB,
 uma se chama instituicoes e tem documentos com o seguinte formato:
 {
   "_id": {
@@ -108,21 +117,21 @@ A outra se chama servicos e tem documentos no seguinte formato:
   ]
 }
 
+Cada vaga em 'servicos' possui uma referênia para um estudante dentro do array 'estudantes' da coleção 'instituicoes'.
 Considerando essas coleções, eu farei uma pergunta que você deve responder com uma query mongodb, juntamente com uma explicação do que a query faz.
-
 Esta é a pergunta:
 
-`
+`;
 
   try {
-    answer.value = await useGetGenerativeModelGP(context + question.value)
+    answer.value = await useGetGenerativeModelGP(context + question.value);
   } catch (error) {
-    console.log({ error })
+    console.log({ error });
   } finally {
-    isLoading.value = false
-    question.value = ''
+    isLoading.value = false;
+    question.value = "";
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
