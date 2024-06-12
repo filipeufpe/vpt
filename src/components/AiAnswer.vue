@@ -8,7 +8,6 @@
 
 <script setup lang="ts">
 import { computed, defineProps } from "vue";
-import { VMarkdownView } from "vue3-markdown";
 import { marked } from 'marked'
 
 defineProps({
