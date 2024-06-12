@@ -8,7 +8,7 @@
   defineProps({
       answer: {
           type: String,
-          default: "Answer will be displayed here."
+          default: "A resposta aparecerá aqui."
       }
   })
 </script>
