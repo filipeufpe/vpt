@@ -1,5 +1,5 @@
 <template>
-  <h1 class="mb-5">Hello i'm Gemini AI, ask me anything</h1>
+  <h1 class="mb-5">Faça perguntas sobre o Banco</h1>
 
   <form class="mb-5" @submit.prevent="fetchAnswer">
     <div>
