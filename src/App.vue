@@ -1,5 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import GeminiAI from './components/GeminiAI.vue';
+
 </script>
 
 <template>
