@@ -117,7 +117,8 @@ A outra se chama servicos e tem documentos no seguinte formato:
   ]
 }
 
-Cada vaga em 'servicos' possui uma referênia para um estudante dentro do array 'estudantes' da coleção 'instituicoes'.
+Na coleção 'servicos', cada elemento do array vagas possui um atributo estudante_id que faz referência a um elemento do array estudantes,
+da coleção 'instituicoes', dessa forma servicos.vagas[i].estudante_id = instituicoes.estudantes._id.
 Considerando essas coleções, eu farei uma pergunta que você deve responder com uma query mongodb, juntamente com uma explicação do que a query faz.
 Esta é a pergunta:
 
