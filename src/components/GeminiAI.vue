@@ -1,26 +1,26 @@
 <template>
-  <header class="bg-gray-200 h-12 flex items-center px-4">
-    <form @submit.prevent="fetchAnswer" class="w-full">
-      <input
-        type="text"
-        id="question"
-        v-model="question"
-        placeholder="Digite algo..."
-        class="w-4/5 p-2 border border-gray-300 rounded mr-2"
-      />
-      <button
-        class="p-2 bg-blue-500 text-white rounded"
-        type="submit"
-        :disabled="!question"
-      >
-        {{ `${isLoading ? "Aguardando..." : "Enviar"}` }}
-      </button>
-    </form>
-  </header>
-  <h1 class="mb-5">Faça perguntas sobre o Banco</h1>
-
-  <div class="mb-10">
-    <AIAnswer :answer="answer" />
+  <div class="flex h-screen flex-col">
+    <header class="bg-gray-200 flex items-center p-4">
+      <form @submit.prevent="fetchAnswer" class="w-full">
+        <input
+          type="text"
+          id="question"
+          v-model="question"
+          placeholder="Digite algo..."
+          class="w-4/5 p-2 border border-gray-300 rounded mr-2"
+        />
+        <button
+          class="p-2 bg-blue-500 text-white rounded"
+          type="submit"
+          :disabled="!question"
+        >
+          {{ `${isLoading ? "Aguardando..." : "Enviar"}` }}
+        </button>
+      </form>
+    </header>
+    <div class="p-4 bg-slate-100 flex-1">
+      <AIAnswer :answer="answer" />
+    </div>
   </div>
 </template>
 
