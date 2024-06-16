@@ -39,24 +39,24 @@ const fetchAnswer = async () => {
 
   const context = `Considere os schemas abaixo:
   estudantes = {
-      _id: ObjectId() 
+      _id: ObjectId()
       nome: string,
       cpf: string,
       periodo: number,
-      curso: string 
+      curso: string
     }
- 
-  instituicoes = 
+
+  instituicoes =
 {
   _id:  ObjectId(),
   nome: string,
   endereco: {
-    rua: string, 
+    rua: string,
     numero: string,
     bairro: string,
-    cidade: string, 
+    cidade: string,
     estado: string,
-    cep: string 
+    cep: string
   },
   telefones: string[],
   cnpj: string,
@@ -72,11 +72,11 @@ vaga = {
 
 servicos = {
   _id: ObjectId(),
-  nome: string, 
-  sigla: string, 
+  nome: string,
+  sigla: string,
   responsavel: {
-    nome: string, 
-    crm: string, 
+    nome: string,
+    crm: string,
   },
   capacidade: number,
   vagas: vaga[]
@@ -89,8 +89,11 @@ A coleção 'instituicoes' possum um array de estudantes.
 A coleção 'servicos' possui um array de vagas onde cada elemento desse array possui uma referência a UM estudante
 do array de estudantes da coleção 'instituicoes'.
 
-Responda a pergunta a seguir com uma consulta em MongoDB e uma explicação detalhada do seu raciocínio. 
-A resposta deve estar em formato html, com syntax highlight e formatação de código.
+Responda a pergunta a seguir com uma consulta em MongoDB e uma explicação detalhada do seu raciocínio.
+
+A resposta será composta de DUAS partes: a consulta em MongoDB e a explicação detalhada do raciocínio.
+Formate a resposta utilizando markdown.
+
 
 `;
 
