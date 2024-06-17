@@ -67,7 +67,8 @@ const fetchAnswer = async () => {
 vaga = {
   estudante_id: ObjectId(), //referencia um estudante em instituicoes.estudantes[]
   inicio: Date,
-  fim: Date
+  fim: Date,
+  ativa: boolean
 }
 
 servicos = {
